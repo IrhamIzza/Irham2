@@ -75,3 +75,38 @@ $('#movie-list').on("click",'.search-detail',function () {
         }
     })
 })
+
+$('#cocok-submit').on('click', function () {
+  let nama1 = $('#nama1').val()
+  let nama2 = $('#nama2').val()
+  let cocok = nama1.toLowerCase() == 'ilyas' && nama2.toLowerCase() == 'anne' || nama1.toLowerCase() == 'anne' && nama2.toLowerCase() == 'ilyas' 
+  let Tcocok = nama1.toLowerCase() == 'b' && nama2.toLowerCase() == 'b'
+
+  function hitung() {
+    let hitung = Math.round(Math.random()*100)
+    return hitung 
+  }
+  function hitungCocok() {
+    let hitung = Math.round(Math.random() * 20) + 80;
+    return hitung 
+  }
+  function hitungTidak() {
+    let hitung = Math.round(Math.random() * 20);
+    return hitung 
+  }
+
+  if (cocok) {
+    $('#cocok-hasil').html(`
+      Hasil : `+ hitungCocok() +` 
+      %`)
+  }else if(Tcocok) {
+    $('#cocok-hasil').html(`
+      Hasil : `+ hitungTidak() +` 
+      %`)
+  } else {
+    $('#cocok-hasil').html(`
+      Hasil : `+ hitung() +` 
+      %`)
+  }
+
+})
