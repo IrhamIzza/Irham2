@@ -77,11 +77,21 @@ $('#movie-list').on("click",'.search-detail',function () {
 })
 
 $('#cocok-submit').on('click', function () {
-  let nama1 = $('#nama1').val()
-  let nama2 = $('#nama2').val()
-  let cocok = nama1.toLowerCase() == 'ilyas' && nama2.toLowerCase() == 'anne' || nama1.toLowerCase() == 'anne' && nama2.toLowerCase() == 'ilyas' 
-  let Tcocok = nama1.toLowerCase() == 'b' && nama2.toLowerCase() == 'b'
+  let nama1 = $('#nama1').val().toLowerCase()
+  let nama2 = $('#nama2').val().toLowerCase()
+  let cocok = nama1 == 'ilyas' && nama2 == 'anne' || nama1 == 'anne' && nama2 == 'ilyas' 
+  let Tcocok = nama1 == 'irham' && nama2 == 'salma' || nama1 == 'salma' && nama2 == 'irham' 
 
+  function cek() {
+    if (nama1 == 'daren'||nama1 == 'irham'||nama1 == 'ilyas'||nama1 == 'dika') {
+      if (nama2 == 'daren'||nama2 == 'irham'||nama2 == 'ilyas'||nama2 == 'dika') {
+        return true
+      }else{ return false }
+    }else{
+      return false
+    }
+  }
+  console.log(cek())
   function hitung() {
     let hitung = Math.round(Math.random()*100)
     return hitung 
@@ -95,13 +105,16 @@ $('#cocok-submit').on('click', function () {
     return hitung 
   }
 
-  if (cocok) {
+  if(cek() == true) {
     $('#cocok-hasil').html(`
-      Hasil : `+ hitungCocok() +` 
-      %`)
+      DILARANG JOMOK `)
   }else if(Tcocok) {
     $('#cocok-hasil').html(`
       Hasil : `+ hitungTidak() +` 
+      %`)
+  }else if (cocok) {
+    $('#cocok-hasil').html(`
+      Hasil : `+ hitungCocok() +` 
       %`)
   } else {
     $('#cocok-hasil').html(`
