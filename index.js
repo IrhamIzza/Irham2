@@ -1,5 +1,3 @@
-
-
 function search() {
     $("#search-button").on("click", function () {
         $.ajax({
